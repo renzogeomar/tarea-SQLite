@@ -1,0 +1,25 @@
+{
+  "name": "tarea-sqlite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renzogeomar/tarea-SQLite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renzogeomar/tarea-SQLite/issues"
+  },
+  "homepage": "https://github.com/renzogeomar/tarea-SQLite#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "sqlite3": "^5.1.7"
+  }
+}
