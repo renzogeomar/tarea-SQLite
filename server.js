@@ -46,4 +46,6 @@ app.get('/peliculas', (req, res) => {
     res.json(rows); // retorna en formato JSON
   });
 });
-
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
