@@ -37,5 +37,13 @@ app.get('/peliculas', (req, res) => {
     ORDER BY m.Year DESC
     LIMIT 50
   `;
-
+// manejar errores de consulta
+  db.all(query, [`%${nombreActor}%`], (err, rows) => {
+    if (err) {
+      console.error('Error en la consulta:', err.message); // Muestra error si ocurre
+      return res.status(500).json({ error: err.message }); // Devuelve error al cliente
+    }
+    res.json(rows); // retorna en formato JSON
+  });
 });
+
