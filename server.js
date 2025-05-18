@@ -22,15 +22,20 @@ app.get('/', (req, res) => {
 
 // Buscar películas por nombre del actor
 app.get('/peliculas', (req, res) => {
-  const nombreActor = req.query.nombre;    // Extrae el parámetro 'nombre' de la URL
+  const nombreActor = req.query.nombre;   
 
   if (!nombreActor) {
     return res.status(400).json({ error: 'Falta el parámetro "nombre"' });
   }
-
+//Esta consulta SQL busca películas en las que haya participado un actor con un nombre similar al ingresado
   const query = `
+    SELECT m.Title AS Titulo, m.Year AS Año, m.Score AS Puntuacion, m.Votes AS Votos
+    FROM Actor a
+    JOIN Casting c ON a.ActorId = c.ActorId
+    JOIN Movie m ON c.MovieID = m.MovieID
+    WHERE a.Name LIKE ?
+    ORDER BY m.Year DESC
+    LIMIT 50
   `;
 
-
 });
-
