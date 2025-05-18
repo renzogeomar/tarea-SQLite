@@ -19,6 +19,24 @@
       </thead>
       <tbody id="resultados"></tbody>
     </table>
-
+    <script>
+      // enviar el nombre del actor al servidor para hacer la consulta
+      function buscarPeliculas() {
+        const nombre = document.getElementById('nombre').value;
+        fetch(`/peliculas?nombre=${encodeURIComponent(nombre)}`)//hace una petición HTTP GET al servidor, envia el parametro nombre
+          .then(response => response.json()) ///cuando el servidor responde, convierte la respuesta en formato JSON
+          .then(data => { // selecciona el <tbody> de la tabla donde se mostrarán los resultados
+            const tabla = document.getElementById('resultados');
+            tabla.innerHTML = '';
+            if (data.error) { //para mostrar error
+              tabla.innerHTML = `<tr><td colspan="4">Error: ${data.error}</td></tr>`;
+              return;
+            }
+          })
+          .catch(error => {
+            console.error('Error al buscar películas:', error);
+          });
+      }
+    </script>
   </body>
 </html>
