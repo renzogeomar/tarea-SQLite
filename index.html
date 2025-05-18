@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Películas por Actor</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <h1>Buscar Películas por Actor</h1>
@@ -45,7 +46,9 @@
               tabla.appendChild(fila);
             });
           })
-
+          .catch(error => {
+            console.error('Error al buscar películas:', error);
+          });
       }
     </script>
   </body>
