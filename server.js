@@ -4,6 +4,8 @@ const sqlite3 = require('sqlite3').verbose();
 const fs = require('fs');
 const app = express();
 const PORT = 3000;
+
+app.use(express.static(__dirname));
 // Conexión a la base de datos 'imdb.db'
 const db = new sqlite3.Database('./imdb.db', (err) => {
   if (err) {
