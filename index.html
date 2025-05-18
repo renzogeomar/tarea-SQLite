@@ -7,8 +7,18 @@
   <body>
     <h1>Buscar Películas por Actor</h1>
     <input type="text" id="nombre" placeholder="Ej: Gabriel Byrne">
-    <button onclick="">Buscar</button>
-
+    <button onclick="buscarPeliculas()">Buscar</button>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Año</th>
+          <th>Puntuación</th>
+          <th>Votos</th>
+        </tr>
+      </thead>
+      <tbody id="resultados"></tbody>
+    </table>
 
   </body>
 </html>
